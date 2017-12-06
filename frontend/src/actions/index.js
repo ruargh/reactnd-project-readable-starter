@@ -2,7 +2,6 @@ export const GET_CATEGORIES = 'GET_CATEGORIES'
 export const GET_CATEGORY_POSTS = 'GET_CATEGORY_POSTS'
 export const GET_POSTS = 'GET_POSTS'
 export const POST_POSTS = 'POST_POSTS'
-export const DELETE_POSTS = 'DELETE_POSTS'
 export const GET_POSTS = 'GET_POSTS'
 export const GET_POSTS_ID = 'GET_POSTS_ID'
 export const POST_POSTS_ID = 'POST_POSTS_ID'
@@ -37,7 +36,7 @@ export function postPosts ({ id, timestamp, title, body, author, category }) {
 
 export function deletePosts ({ id }) {
     return {
-    type: DELETE_POSTS,
+    type: DELETE_POSTS_ID,
     id,
     }
 }

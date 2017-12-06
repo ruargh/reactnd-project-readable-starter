@@ -2,7 +2,6 @@
 
 import {
     POST_POSTS,
-    DELETE_POSTS,
     POST_POSTS_ID,
     PUT_POSTS_ID,
     POST_COMMENTS,
@@ -12,7 +11,6 @@ import {
 } from '../actions'
 
 export const POST_POSTS = 'POST_POSTS'
-export const DELETE_POSTS = 'DELETE_POSTS'
 export const POST_POSTS_ID = 'POST_POSTS_ID'
 export const PUT_POSTS_ID = 'PUT_POSTS_ID'
 export const DELETE_POSTS_ID = 'DELETE_POSTS_ID'
@@ -60,7 +58,7 @@ function post (state = initialPostState, action) {
                 }
             }
 
-        case DELETE_POSTS :
+        case DELETE_POSTS_ID :
             const { id } = action
 
             return {
