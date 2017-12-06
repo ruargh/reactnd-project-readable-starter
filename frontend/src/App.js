@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import CategoryView from './components/CategoryView'
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +12,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const url = `${process.env.REACT_APP_BACKEND}/categories`;
+    //const url = `${process.env.REACT_APP_BACKEND}/categories`;
+    // Disable CORS in Chrome and set url
+    //https://stackoverflow.com/questions/35588699/response-to-preflight-request-doesnt-pass-access-control-check
+    const url = `http://localhost:3001/categories`;
     console.log('fetching from url', url);
     fetch(url, { headers: { 'Authorization': 'whatever-you-want' },
                  credentials: 'include' } )
@@ -35,6 +39,7 @@ class App extends Component {
           Talking to the backend yields these categories: <br/>
           {this.state.backend}
         </p>
+        <CategoryView />
       </div>
     );
   }
