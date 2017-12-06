@@ -13,13 +13,20 @@ import {
 
 
 
-const url = `http://localhost:3001/categories`;
-console.log('fetching from url', url);
-fetch(url, { headers: { 'Authorization': 'whatever-you-want' },
-             credentials: 'include' } )
-  .then( (res) => { return(res.json()) })
-  .then((data) => {
-    initialCategoryState = data})
+const initialCategoryState = 
+    {
+        "categories": 
+            [{
+                "name":"react",
+                "path":"react"
+            },{
+                "name":"redux",
+                "path":"redux"
+            },{
+                "name":"udacity",
+                "path":"udacity"
+            }]
+    }
 
 
 
@@ -49,9 +56,11 @@ function category (state = initialCategoryState, action) {
   }
 
 function post (state = initialPostState, action) {
+    const { id, timestamp, title, body, author, category  } = action
+
     switch (action.type) {
+
         case POST_POSTS :
-            const { id, timestamp, title, body, author, category  } = action
 
             return {
                 ...state,
@@ -63,7 +72,6 @@ function post (state = initialPostState, action) {
                 [category] : post.category,
             }
         case PUT_POSTS_ID :
-            const { id, title, body  } = action
 
             return {
                 ...state,
@@ -75,7 +83,6 @@ function post (state = initialPostState, action) {
             }
 
         case DELETE_POSTS_ID :
-            const { id } = action
 
             return {
                 ...state,
@@ -96,3 +103,5 @@ export default combineReducers({
   calendar,
 })
 */
+
+export default category

@@ -3,11 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 import CategoryView from './components/CategoryView'
 
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      backend: 'backend-data'
+      backend: 'backend-data',
+      categories: this.props.store.getState()
     }
   }
 
@@ -25,6 +27,13 @@ class App extends Component {
       .then((data) => {
         this.setState({backend:data});
       });
+    const { store } = this.props
+
+    store.subscribe(() => {
+      this.setState(() => ({
+        categories: store.getState()
+      }))
+    })
   }
 
   render() {

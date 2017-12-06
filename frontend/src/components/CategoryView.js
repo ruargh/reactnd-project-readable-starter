@@ -6,19 +6,19 @@ class CategoryView extends Component {
     super(props);
     this.state = {
       pBackend0 :
-{
-      "categories": 
-        [{
-        	"name":"react",
-        	"path":"react"
-      	},{
-        	"name":"redux",
-        	"path":"redux"
-      	},{
-        	"name":"udacity",
-        	"path":"udacity"
-      	}]
-    }
+        {
+        "categories": 
+            [{
+                "name":"react",
+                "path":"react"
+            },{
+                "name":"redux",
+                "path":"redux"
+            },{
+                "name":"udacity",
+                "path":"udacity"
+            }]
+        }
       
       
     }
