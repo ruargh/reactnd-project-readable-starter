@@ -13,13 +13,13 @@ export const PUT_COMMENTS_ID = 'PUT_COMMENTS_ID'
 export const DELETE_COMMENTS_ID = 'DELETE_COMMENTS_ID'
 
 
-/*
-export function getCategories ({}) {
+
+export function getCategories() {
   return {
     type: GET_CATEGORIES,
   }
 }
-*/
+
 
 //Add new Post
 export function postPosts ({ id, timestamp, title, body, author, category }) {

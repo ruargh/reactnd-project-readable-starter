@@ -1,6 +1,7 @@
 // import { combineReducers } from 'redux'
 
 import {
+    GET_CATEGORIES,
     POST_POSTS,
     POST_POSTS_ID,
     PUT_POSTS_ID,
@@ -10,13 +11,28 @@ import {
     DELETE_POSTS_ID,
 } from '../actions'
 
-export const POST_POSTS = 'POST_POSTS'
-export const POST_POSTS_ID = 'POST_POSTS_ID'
-export const PUT_POSTS_ID = 'PUT_POSTS_ID'
-export const DELETE_POSTS_ID = 'DELETE_POSTS_ID'
-export const POST_COMMENTS_ID = 'POST_COMMENTS_ID'
-export const PUT_COMMENTS_ID = 'PUT_COMMENTS_ID'
-export const DELETE_COMMENTS_ID = 'DELETE_COMMENTS_ID'
+
+
+const url = `http://localhost:3001/categories`;
+console.log('fetching from url', url);
+fetch(url, { headers: { 'Authorization': 'whatever-you-want' },
+             credentials: 'include' } )
+  .then( (res) => { return(res.json()) })
+  .then((data) => {
+    initialCategoryState = data})
+
+
+
+function category (state = initialCategoryState, action) {
+    switch (action.type) {
+        case GET_CATEGORIES :
+            return {
+                ...state,
+            }
+        default:
+            return state
+    }
+}
 
 
   const initialPostState = {
