@@ -13,7 +13,8 @@ class App extends Component {
 
   componentDidMount() {
     //const url = `${process.env.REACT_APP_BACKEND}/categories`;
-    // Disable CORS in Chrome and set url
+    // Disable CORS in Chrome and set url 
+    // run in terminal: 'open -a Google\ Chrome --args --disable-web-security --user-data-dir'
     //https://stackoverflow.com/questions/35588699/response-to-preflight-request-doesnt-pass-access-control-check
     const url = `http://localhost:3001/categories`;
     console.log('fetching from url', url);
