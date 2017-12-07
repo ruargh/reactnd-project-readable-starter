@@ -42,9 +42,10 @@ export function deletePosts ({ id }) {
 }
 
 //Vote on post
-export function postPostsId ({ option }) {
+export function postPostsId ({ id, option }) {
     return {
         type: POST_POSTS_ID,
+        id,
         option,
     }
 }

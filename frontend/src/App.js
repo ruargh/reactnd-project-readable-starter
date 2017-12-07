@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import CategoryView from './components/CategoryView'
+import PostDetailView from './components/PostDetailView'
 
 
 class App extends Component {
@@ -9,7 +10,6 @@ class App extends Component {
     super(props);
     this.state = {
       backend: 'backend-data',
-      categories: this.props.store.getState()
     }
   }
 
@@ -19,7 +19,7 @@ class App extends Component {
     // run in terminal: 'open -a Google\ Chrome --args --disable-web-security --user-data-dir'
     //https://stackoverflow.com/questions/35588699/response-to-preflight-request-doesnt-pass-access-control-check
     //const url = `http://localhost:3001/categories`;
-    const url = `http://localhost:3001/categories`;
+    const url = `http://localhost:3001/posts`;
     console.log('fetching from url', url);
     fetch(url, { headers: { 'Authorization': 'whatever-you-want' },
                  credentials: 'include' } )
@@ -27,13 +27,6 @@ class App extends Component {
       .then((data) => {
         this.setState({backend:data});
       });
-    const { store } = this.props
-
-    store.subscribe(() => {
-      this.setState(() => ({
-        categories: store.getState()
-      }))
-    })
   }
 
   render() {
@@ -51,9 +44,10 @@ class App extends Component {
           {this.state.backend}
         </p>
         <CategoryView />
+        <PostDetailView />
       </div>
     );
   }
 }
 
-export default App;
+export default App
