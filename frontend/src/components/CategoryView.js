@@ -4,62 +4,24 @@ import { fetchCategories } from '../utils/api'
 import { getCategories } from '../actions'
 
 class CategoryView extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          backend: 'backend-data',
-        }
-      }
-
-    state = {
-        categories: null,
-      }
-
-
-      componentWillMount() {
-
-        function curry() { 
-            return function getIT () {
-                console.log('Curried!')
-            }
-        }
-        console.log(curry()())
-
-        fetchCategories()
-        .then((data) => this.setState(() => ({
-            categories:data.categories,
-          }),
-    
-        ))
-        .then((state) => getCategories(state))
-
-        console.log('CategoryView will Mount')
-        console.log(this.state.categories)
-
-        
-    }
 
     componentDidMount() {
-        console.log('CategoryView Mounted')
-
+        console.log('CategoryView DidMounted')
     }
-
-
   
   render() {
     console.log('Props', this.props)
-    const { categories } = this.state
+    const { categories } = this.props
     const { store_categories } = this.props
-
-    //const { categories } = this.state
+    const { getCategories } = this.props
 
     
     return (
       <div className="default-view">
       	<h3>Categories</h3>
-          
+        <button onClick={ () => getCategories( {categories} ) }>Update</button>
       	<ul>
-      		{store_categories.map((category, index) =>
+      		{store_categories.categories.map((category, index) =>
       			<li key={index} className="category-list">
       				<div className="category-name">
       					<a href={'/' + category.path}>{category.name}</a>
@@ -86,9 +48,9 @@ const mapStateToProps = (state) => {
 //export default connect(mapStateToProps)(CategoryView)
 //export default CategoryView
 
-const mapDispatchToProps = (dispatch) => {
+function mapDispatchToProps (dispatch) {
     return {
-        getCategories: (data) => dispatch(getCategories(data)) //Vote on post
+        getCategories: (data) => dispatch(getCategories(data))
     }
 
 }

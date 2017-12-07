@@ -13,7 +13,8 @@ import {
 
 
 
-const initialCategoryState = 
+const initialCategoryState = { 
+    categories:
             [{
                 "name":"null",
                 "path":"null"
@@ -24,14 +25,17 @@ const initialCategoryState =
                 "name":"null",
                 "path":"null"
             }]
-
+        }
 
 
 function categories (state = initialCategoryState, action) {
+    const { categories } = action
+
     switch (action.type) {
         case GET_CATEGORIES :
+            console.log('Get Cat new State:' + categories )
             return {
-                ...state,
+                categories
             }
         default:
             return state

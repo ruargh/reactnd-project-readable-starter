@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import CategoryView from './components/CategoryView'
 import PostDetailView from './components/PostDetailView'
+import { fetchCategories } from './utils/api'
+import { getCategories } from './actions/index';
 
 
 
@@ -14,6 +16,23 @@ class App extends Component {
     }
   }
 
+  state = {
+    categories: null,
+  }
+
+
+  componentWillMount() {
+
+    fetchCategories()
+    .then((data) => this.setState(() => ({
+        categories:data.categories,
+      }),
+
+    ))
+
+    console.log('App WillMount')
+    console.log(this.state.categories)
+}
 
 
   componentDidMount() {
@@ -36,6 +55,9 @@ class App extends Component {
   }
 
   render() {
+
+    const { categories } = this.state
+
     return (
       <div className="App">
         <div className="App-header">
@@ -49,7 +71,7 @@ class App extends Component {
           Talking to the backend yields these categories: <br/>
           {this.state.backend}
         </p>
-        <CategoryView />
+        <CategoryView categories={categories} />
         <PostDetailView />
       </div>
     );

@@ -14,9 +14,10 @@ export const DELETE_COMMENTS_ID = 'DELETE_COMMENTS_ID'
 
 
 
-export function getCategories() {
+export function getCategories( { categories } ) {
   return {
     type: GET_CATEGORIES,
+    categories,
   }
 }
 
