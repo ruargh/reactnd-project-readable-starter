@@ -19,12 +19,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState(() => ({ loadingFood: true }))
+    this.setState(() => ({ loadingCategories: true }))
 
     fetchCategories()
       .then((categories) => this.setState(() => ({
         categories,
-        loadingFood: false,
+        loadingCategories: false,
       })))
   }
 
