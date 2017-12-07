@@ -4,6 +4,14 @@ import { fetchCategories } from '../utils/api'
 import { getCategories } from '../actions'
 
 class CategoryView extends Component {
+    constructor(props){
+        super(props);
+        this.state = {categories: this.props.categories}
+      }
+
+      componentWillReceiveProps(nextProps){
+        this.setState({categories: nextProps.categories})
+      }
 
     componentDidMount() {
         console.log('CategoryView DidMounted')
@@ -11,7 +19,8 @@ class CategoryView extends Component {
   
   render() {
     console.log('Props', this.props)
-    const { categories } = this.props
+    //const { categories } = this.props
+    const { categories } = this.state
     const { store_categories } = this.props
     const { getCategories } = this.props
 

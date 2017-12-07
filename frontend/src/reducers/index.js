@@ -1,17 +1,50 @@
 import { combineReducers } from 'redux'
 
 import {
-    GET_CATEGORIES,
-    POST_POSTS,
-    POST_POSTS_ID,
-    PUT_POSTS_ID,
-    POST_COMMENTS,
-    POST_COMMENTS_ID,
-    PUT_COMMENTS_ID,
-    DELETE_POSTS_ID,
+    // GET_CATEGORIES,
+    GET_CATEGORY_POSTS,
+    // POST_POSTS,
+    // POST_POSTS_ID,
+    // PUT_POSTS_ID,
+    // POST_COMMENTS,
+    // POST_COMMENTS_ID,
+    // PUT_COMMENTS_ID,
+    // DELETE_POSTS_ID,
 } from '../actions'
 
 
+const initialCategoryState = { 
+    categories:
+            [{
+                "name":"null",
+                "path":"null"
+            },{
+                "name":"null",
+                "path":"null"
+            },{
+                "name":"null",
+                "path":"null"
+            }]
+        }
+
+function categories (state = initialCategoryState, action) {
+    const { categories } = action
+  
+    switch (action.type) {
+      case GET_CATEGORY_POSTS :
+        return {
+          ...state
+        }
+      default :
+        return state
+    }
+  }
+
+
+
+
+
+/* 
 
 const initialCategoryState = { 
     categories:
@@ -113,10 +146,10 @@ function post (state = initialPostState, action) {
             return state
     }
 }
-
+ */
 
 
 export default combineReducers({
     categories,
-    post,
+    // post,
 })

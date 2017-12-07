@@ -1,19 +1,33 @@
-export const GET_CATEGORIES = 'GET_CATEGORIES'
+//export const GET_CATEGORIES = 'GET_CATEGORIES'
 export const GET_CATEGORY_POSTS = 'GET_CATEGORY_POSTS'
-export const POST_POSTS = 'POST_POSTS'
-export const GET_POSTS = 'GET_POSTS'
-export const GET_POSTS_ID = 'GET_POSTS_ID'
-export const POST_POSTS_ID = 'POST_POSTS_ID'
-export const PUT_POSTS_ID = 'PUT_POSTS_ID'
-export const DELETE_POSTS_ID = 'DELETE_POSTS_ID'
-export const POST_COMMENTS = 'POST_COMMENTS'
-export const GET_COMMENTS_ID = 'GET_COMMENTS_ID'
-export const POST_COMMENTS_ID = 'POST_COMMENTS_ID'
-export const PUT_COMMENTS_ID = 'PUT_COMMENTS_ID'
-export const DELETE_COMMENTS_ID = 'DELETE_COMMENTS_ID'
+// export const POST_POSTS = 'POST_POSTS'
+// export const GET_POSTS = 'GET_POSTS'
+// export const GET_POSTS_ID = 'GET_POSTS_ID'
+// export const POST_POSTS_ID = 'POST_POSTS_ID'
+// export const PUT_POSTS_ID = 'PUT_POSTS_ID'
+// export const DELETE_POSTS_ID = 'DELETE_POSTS_ID'
+// export const POST_COMMENTS = 'POST_COMMENTS'
+// export const GET_COMMENTS_ID = 'GET_COMMENTS_ID'
+// export const POST_COMMENTS_ID = 'POST_COMMENTS_ID'
+// export const PUT_COMMENTS_ID = 'PUT_COMMENTS_ID'
+// export const DELETE_COMMENTS_ID = 'DELETE_COMMENTS_ID'
+
+
+export function showCategory ({ category }) {
+    return {
+      type: GET_CATEGORY_POSTS,
+      category,
+    }
+  }
 
 
 
+
+
+
+
+
+/* 
 export function getCategories( { categories } ) {
   return {
     type: GET_CATEGORIES,
@@ -78,4 +92,4 @@ export function putCommentsId ({ timestamp, body }) {
       timestamp,
       body,
     }
-}
+} */

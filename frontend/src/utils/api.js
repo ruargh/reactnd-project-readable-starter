@@ -14,4 +14,4 @@ export function fetchCategories () {
                 headers: { 'Authorization': 'whatever-you-want' },
                 credentials: 'include' } )
         .then( (res) => res.json())
-}
+  }
