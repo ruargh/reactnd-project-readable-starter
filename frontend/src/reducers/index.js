@@ -14,8 +14,6 @@ import {
 
 
 const initialCategoryState = 
-    {
-        "categories": 
             [{
                 "name":"null",
                 "path":"null"
@@ -26,11 +24,10 @@ const initialCategoryState =
                 "name":"null",
                 "path":"null"
             }]
-    }
 
 
 
-function category (state = initialCategoryState, action) {
+function categories (state = initialCategoryState, action) {
     switch (action.type) {
         case GET_CATEGORIES :
             return {
@@ -116,6 +113,6 @@ function post (state = initialPostState, action) {
 
 
 export default combineReducers({
-    category,
+    categories,
     post,
 })

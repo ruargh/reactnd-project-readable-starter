@@ -5,6 +5,7 @@ import CategoryView from './components/CategoryView'
 import PostDetailView from './components/PostDetailView'
 
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +13,8 @@ class App extends Component {
       backend: 'backend-data',
     }
   }
+
+
 
   componentDidMount() {
     //const url = `${process.env.REACT_APP_BACKEND}/categories`;
@@ -27,6 +30,9 @@ class App extends Component {
       .then((data) => {
         this.setState({backend:data});
       });
+
+      console.log('APP mounted')
+
   }
 
   render() {

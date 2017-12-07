@@ -13,5 +13,5 @@ export function fetchCategories () {
   return fetch(url, {
                 headers: { 'Authorization': 'whatever-you-want' },
                 credentials: 'include' } )
-        .then((res) => res.json())
+        .then( (res) => res.json())
 }
