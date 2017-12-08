@@ -1,8 +1,8 @@
 //export const GET_CATEGORIES = 'GET_CATEGORIES'
 export const GET_CATEGORY_POSTS = 'GET_CATEGORY_POSTS'
-// export const POST_POSTS = 'POST_POSTS'
 // export const GET_POSTS = 'GET_POSTS'
-// export const GET_POSTS_ID = 'GET_POSTS_ID'
+// export const POST_POSTS = 'POST_POSTS'
+export const GET_POSTS_ID = 'GET_POSTS_ID'
 // export const POST_POSTS_ID = 'POST_POSTS_ID'
 // export const PUT_POSTS_ID = 'PUT_POSTS_ID'
 // export const DELETE_POSTS_ID = 'DELETE_POSTS_ID'
@@ -20,7 +20,12 @@ export function showCategory ({ category }) {
     }
   }
 
-
+export function showPost ({ post }) {
+    return {
+      type: GET_POSTS_ID,
+      post,
+    }
+  }
 
 
 

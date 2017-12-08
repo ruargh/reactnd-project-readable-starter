@@ -15,3 +15,11 @@ export function fetchCategories () {
                 credentials: 'include' } )
         .then( (res) => res.json())
   }
+
+  export function fetchPosts() {
+    const url = `${API_URL}/posts`
+  return fetch(url, {
+                headers: { 'Authorization': 'whatever-you-want' },
+                credentials: 'include' } )
+        .then( (res) => res.json())
+  }

@@ -3,6 +3,8 @@ import { combineReducers } from 'redux'
 import {
     // GET_CATEGORIES,
     GET_CATEGORY_POSTS,
+    // GET_POSTS,
+    GET_POSTS_ID,
     // POST_POSTS,
     // POST_POSTS_ID,
     // PUT_POSTS_ID,
@@ -40,7 +42,39 @@ function categories (state = initialCategoryState, action) {
     }
   }
 
+  const initialPostState =
+  
+      [{
+          "id":"8xf0y6ziyjabvozdd253nd",
+          "timestamp":1467166872634,
+          "title":"null",
+          "body":"null",
+          "author":"null",
+          "category":"null",
+          "voteScore":0,
+          "deleted":false
+      },{
+          "id":"6ni6ok3ym7mf1p33lnez",
+          "title":"null",
+          "body":"null",
+          "author":"null",
+          "category":"null",
+          "voteScore":0,
+          "deleted":false
+      }]
 
+function posts (state = initialPostState, action) {
+    const { posts } = action
+  
+    switch (action.type) {
+      case GET_POSTS_ID :
+        return {
+          ...state
+        }
+      default :
+        return state
+    }
+  }
 
 
 
